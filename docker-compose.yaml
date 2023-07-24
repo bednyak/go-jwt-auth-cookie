@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    container_name: go-jwt-auth-cookie
+    environment:
+      MYSQL_DATABASE: 'gojwtauth'
+      MYSQL_USER: 'andrew'
+      MYSQL_PASSWORD: '12345678'
+      MYSQL_ROOT_PASSWORD: '12345678'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql-db:/var/lib/mysql
+
+volumes:
+  mysql-db:
